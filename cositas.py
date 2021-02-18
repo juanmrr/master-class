@@ -1,31 +1,24 @@
 import random
 
+
 class Cositas:
 
     def __init__(self, inicial, final):
         self.inicial = inicial
         self.final = final
-        self.numeros=[]
-        for i in range(inicial, final):
-            self.numeros.append(i)
 
     def get_evens(self):
-        pares=[]
-        for i in self.numeros:
-            if i%2 == 0:
-                pares.append(i)
-        return pares
+        return (i for i in range(self.inicial, self.final) if i % 2 == 0)
 
     def get_not_evens(self):
-        impares=[]
-        for i in self.numeros:
-            if i%2==1:
-                impares.append(i)
-
-        return impares
+        return [i for i in range(self.inicial, self.final) if i % 2 == 1]
 
     def mean(self):
-        return (self.inicial+self.final)/2
+        return (self.inicial + self.final) / 2
 
     def die(self):
         return (random.randint(self.inicial, self.final))
+
+
+if __name__ == "__main__":
+    cositas = Cositas(2, 16)
